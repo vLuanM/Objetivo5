@@ -39,7 +39,7 @@ public class SecretariaDAO extends BaseDAO{
         {
             pstmt.setString(1, secretaria.getNome());
             pstmt.setString(2, secretaria.getRg());
-            pstmt.setInt(4, secretaria.getCod_secretaria());
+            pstmt.setInt(3, secretaria.getCod_secretaria());
             int count = pstmt.executeUpdate();
             return count > 0;
 
