@@ -2,6 +2,8 @@ package controller;
 
 import java.util.List;
 import java.util.Scanner;
+
+import dao.PacienteDAO;
 import dao.SecretariaDAO;
 import model.Secretaria;
 
@@ -117,6 +119,11 @@ public class SecretariaController {
         if (opcao == 1) {
             System.out.println("\nDigite o novo RG: ");
             secretaria.setRg(input.nextLine());
+        }
+        if (SecretariaDAO.atualizarDadosSecretaria(secretaria)) {
+            System.out.println("\nDados alterados");
+        } else {
+            System.out.println("\nErro ao alterar os dados");
         }
     }
 
