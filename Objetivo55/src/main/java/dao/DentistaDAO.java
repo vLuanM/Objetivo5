@@ -38,6 +38,7 @@ public class DentistaDAO extends BaseDAO{
         {
             pstmt.setString(1, dentista.getNome());
             pstmt.setString(2, dentista.getCro());
+            pstmt.setInt(3, dentista.getCod_dentista());
             int count = pstmt.executeUpdate();
             return count > 0;
 
