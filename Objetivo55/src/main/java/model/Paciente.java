@@ -60,7 +60,7 @@ public class Paciente {
     @Override
     public String toString() {
         return "\nPaciente{" +
-                "cod_paciente=" + cod_paciente +
+                ", cod_paciente=" + cod_paciente +
                 ", nome='" + nome + '\'' +
                 ", rg='" + rg + '\'' +
                 ", senha='" + senha + '\'' +
