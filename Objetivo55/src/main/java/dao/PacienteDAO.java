@@ -1,5 +1,6 @@
 package dao;
 
+import model.Dentista;
 import model.Paciente;
 
 import java.sql.Connection;
@@ -87,17 +88,18 @@ public class PacienteDAO extends BaseDAO{
         }
     }
 
-    public static List<Paciente> selecionarRgPaciente(String rg) {
-        final String sql = "SELECT * FROM paciente WHERE rg like ?";
-        try
-                (Connection conn = getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, rg.toLowerCase() + "%");
+    public static Paciente selecionarRgPaciente(String rg) {
+        final String sql = "SELECT * FROM paciente WHERE rg=?";
+        try (Connection conn = getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, rg);
             ResultSet rs = pstmt.executeQuery();
-            List<Paciente> pacientes = new ArrayList<>();
-            while (rs.next()) {
-                pacientes.add(resultsetToPaciente(rs));
+            Paciente paciente = null;
+            if (rs.next()) {
+                paciente = resultsetToPaciente(rs);
             }
-            return pacientes;
+            rs.close();
+            return paciente;
+
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
