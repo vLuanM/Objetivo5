@@ -3,6 +3,9 @@ package model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 import java.sql.Time;
 
@@ -11,8 +14,8 @@ import java.sql.Time;
 @NoArgsConstructor
 public class Consulta {
     private int cod_consulta;
-    private Date data;
-    private Time hora;
+    private LocalDate data_consulta;
+    private LocalTime hora;
     private Paciente paciente = new Paciente();
     private Dentista dentista = new Dentista();
     private Secretaria secretaria = new Secretaria();
@@ -22,7 +25,7 @@ public class Consulta {
     public String toString() {
         return "\nConsulta{" +
                 "cod_consulta=" + cod_consulta +
-                ", data=" + data +
+                ", data=" + data_consulta +
                 ", hora=" + hora +
                 ", paciente=" + paciente +
                 ", dentista=" + dentista +
