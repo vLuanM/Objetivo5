@@ -24,7 +24,7 @@ public class MenuController {
                 case 1 -> PacienteController.main(null);
                 case 2 -> SecretariaController.main(null);
                 case 3 -> DentistaController.main(null);
-               /* case 4 -> ConsultaController.main(null);*/
+               case 4 -> ConsultaController.main(null);
                 default -> {
                     if (opcao != 0) System.out.println("Opção inválida.");
                 }
@@ -34,6 +34,3 @@ public class MenuController {
         input.close();
     }
 }
-                
-                /* https://github.com/vagnersilvaifsul/lpoo/blob/main/data_nova_api/src/controller/Main.java 
-                salvando pra utilizar dps*/
